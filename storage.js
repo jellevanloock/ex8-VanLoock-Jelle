@@ -32,7 +32,7 @@ var dal = {
 	},
         clearFile: function (call) {
 		this.connect(null, function (db) {
-			db.collection('drones').drop(function (err, result) {
+			db.collection('files').drop(function (err, result) {
 				//callback(result);
 				db.close();
 			});

@@ -1,4 +1,4 @@
-// >$ npm install request --save 
+// npm install request --save 
 var request = require("request");
 var dal = require('./storage.js');
 
