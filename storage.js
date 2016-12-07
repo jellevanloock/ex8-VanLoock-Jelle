@@ -29,6 +29,22 @@ var dal = {
 				db.close();
 			});
 		});
+	},
+        clearFile: function (call) {
+		this.connect(null, function (db) {
+			db.collection('drones').drop(function (err, result) {
+				//callback(result);
+				db.close();
+			});
+		})
+	},
+        insertFile: function (file, callback) {
+		this.connect(null, function (db) {
+			db.collection('files').insert(file, function (err, result) {
+				//callback(result);
+				db.close();
+			});
+		});
 	}
 };
 
