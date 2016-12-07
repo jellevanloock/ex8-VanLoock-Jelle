@@ -16,10 +16,13 @@ var Settings = function (url) {
 	};
 };
 
-var Drone = function (id, name, mac) {
+var Drone = function (id, name, mac, location, date, files_count) {
 	this._id = id
 	this.name = name;
 	this.mac = mac;
+        this.location = location;
+        this.date = date;
+        this.files_count = files_count;
 };
 
 var dronesSettings = new Settings("/drones?format=json");
@@ -28,13 +31,13 @@ dal.clearDrone();
 
 request(dronesSettings, function (error, response, dronesString) {
 	var drones = JSON.parse(dronesString);
-	console.log(drones);
-	console.log("***************************************************************************");
+	/*console.log(drones);
+	console.log("***************************************************************************");*/
 	drones.forEach(function (drone) {
 		var droneSettings = new Settings("/drones/" + drone.id + "?format=json");
 		request(droneSettings, function (error, response, droneString) {
 			var drone = JSON.parse(droneString);
-			dal.insertDrone(new Drone(drone.id, drone.name, drone.mac_address));
+			dal.insertDrone(new Drone(drone.id, drone.name, drone.mac_address, drone.location, drone.last_packet_date, drone.files_count));
                        /* request(filesSettings, function (error, response, filesString){
                             var files = JSON.parse(filesString);
                         });*/
