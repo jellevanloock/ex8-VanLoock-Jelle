@@ -1,0 +1,17 @@
+{
+  "name": "ProberRequestNodeJs",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "lucs",
+  "contributors": [],
+  "dependencies": {
+    "mongodb": "^2.2.13",
+    "request": "^2.79.0"
+  }
+}
