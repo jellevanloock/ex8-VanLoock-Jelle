@@ -72,7 +72,8 @@ request(dronesSettings, function (error, response, dronesString) {
                                 drone.files, 
                                 drone.files_count));
                         
-                        var filesSettings = new Settings("/files?drone_id.is="+drone.id+"&format=json");
+                        var filesSettings = new Settings("/files?drone_id.is=" + drone.id + "&format=json&date_loaded.greaterOrEqual=2016-12-07T12:00:00");
+                        ///files?drone_id.is=cc3f2b0604a543399edd0d579447513f&date_loaded.greaterOrEqual=2016-10-13T16:40:05.255Z&format=json
                         console.log(filesSettings);
                         request(filesSettings, function (error, response, filesString){
                             var files = JSON.parse(filesString);
@@ -115,12 +116,12 @@ request(dronesSettings, function (error, response, dronesString) {
                                                        drone.id));
                                            });
                                         });
-                                    });
                                 });
                             });
                         });
 		});
 	});
+});
 });
 
 console.log("Hello World!");
